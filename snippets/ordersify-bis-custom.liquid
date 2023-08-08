@@ -1,0 +1,102 @@
+<script type="text/javascript">
+  (function() {
+    window.ORDERSIFY_BIS = window.ORDERSIFY_BIS || {};
+    window.ORDERSIFY_BIS.is_custom_event = true;
+
+    function getUrlParameter(sParam) {
+        var sPageURL = window.location.search.substring(1),
+            sURLVariables = sPageURL.split('&'),
+            sParameterName,
+            i;
+        for (i = 0; i < sURLVariables.length; i++) {
+            sParameterName = sURLVariables[i].split('=');
+            if (sParameterName[0] === sParam) {
+                return typeof sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
+            }
+        }
+        return false;
+    };
+
+    function hItg() {
+        setTimeout(function() {
+            var variantId = getUrlParameter('variant');
+            if (!variantId) {
+                variantId = window.ORDERSIFY_BIS.currentVariant.id;
+            }
+            console.log(variantId);
+            var available = true;
+            var variants = [];
+            if (window.ORDERSIFY_BIS.product) {
+                variants = window.ORDERSIFY_BIS.product.variants;
+            }
+            variants.map(function(variant_product) {
+                if (String(variant_product.id) === String(variantId)) {
+                    available = variant_product.available;
+                }
+            });
+            if (window.ORDERSIFY_BIS.setCurrentVariantId) {
+                window.ORDERSIFY_BIS.setCurrentVariantId(variantId);
+            }
+            if (window.ORDERSIFY_BIS.setIsProductAvailable) {
+                window.ORDERSIFY_BIS.setIsProductAvailable(available);
+            }
+            if (window.ORDERSIFY_BIS.setCurrentVariantIdForStockRemaining) {
+                window.ORDERSIFY_BIS.setCurrentVariantIdForStockRemaining(variantId);
+            }
+        }, 200);
+    }
+
+    function bisItg($) {
+        $(document).ready(function() {
+            hItg();
+            setTimeout(hItg, 2000);
+            $('form[action*="/cart/add"]').change(hItg);
+            $('.Popover__Value').click(hItg);
+            if (document.readyState == 'complete') {
+                $('form[action*="/cart/add"]').change(hItg);
+                $('.Popover__Value').click(hItg);
+                $('body').click(hItg);
+            } else {
+                document.onreadystatechange = function() {
+                    if (document.readyState === "complete") {
+                        $('form[action*="/cart/add"]').change(hItg);
+                        $('.Popover__Value').click(hItg);
+                        $('body').click(hItg);
+                    }
+                }
+            }
+        });
+    }
+
+    function loadScript(url, callback) {
+        var script = document.createElement("script");
+        script.type = "text/javascript";
+        script.async = true;
+        // If the browser is Internet Explorer.
+        if (script.readyState) {
+            script.onreadystatechange = function() {
+                if (script.readyState == "loaded" || script.readyState == "complete") {
+                    script.onreadystatechange = null;
+                    callback();
+                }
+            };
+            // For any other browser.
+        } else {
+            script.onload = function() {
+                callback();
+            };
+        }
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(script);
+    };
+    
+    if ((typeof jQuery === 'undefined')) {
+        loadScript('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', function() {
+            jQueryNoConflict = jQuery.noConflict(true);
+            bisItg(jQueryNoConflict);
+        });
+    } else {
+        bisItg(jQuery);
+    }
+  })();
+</script>
