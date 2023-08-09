@@ -175,7 +175,7 @@
                       <button
                         class="collection__active-filter-cross"
                         data-action="toggle-tag"
-                        data-tag="{{ cor }}">{% render 'icon', icon: 'close' %}</button>
+                        data-tag="{{ tag | handle }}">{% render 'icon', icon: 'close' %}</button>
 
                       {%- if section.settings.filter_type == 'group' -%}
                         {{- cor -}}
@@ -651,13 +651,10 @@
                       <div class="collection__mobile-active-filters">
                         {%- for tag in current_tags -%}
                           {% assign tag_cor = tag | handle | split: 'cor_' | last | split: '-' | first | replace: '_', '' %}
-                          <script>
-                            console.log("tag_cor", {{tag_cor}})
-                          </script>
                           <button
                             class="collection__mobile-active-filter-item"
                             data-action="toggle-tag"
-                            data-tag="{{ tag_cor }}">
+                            data-tag="{{ tag | handle  }}">
                             <span class="collection__mobile-active-filter-cross">{% render 'icon', icon: 'close' %}</span>
 
                             {%- if section.settings.filter_type == 'group' -%}
@@ -910,7 +907,7 @@
                         aria-expanded="false">
                         <div>
                           {{- group -}}
-                          <span class="collection__filter-item-active" {% unless has_active_tag_from_group %}style="display: none"{% endunless %}>{{ current_tag_parts.last }}</span>
+                          {% comment %} <span class="collection__filter-item-active" {% unless has_active_tag_from_group %}style="display: none"{% endunless %}>{{ current_tag_parts.last }}</span> {% endcomment %}
                         </div>
 
                         {%- render 'icon', icon: 'arrow-bottom' -%}
@@ -944,7 +941,7 @@
                                     class="color-swatch__button color-swatch__button--labelled {% if current_tags contains tag %}is-selected{% endif %}"
                                     data-action="toggle-tag"
                                     data-tag="{{ tag | handle }}"
-                                    data-tag-user="{{ tag_cor }}">
+                                    data-tag-user="{{ tag | handle }}">
                                     <span class="color-swatch__item lazyload" {% if color_swatch_image != blank %}data-bg="{{ color_swatch_image | img_url: '64x64' }}"{% else %}style="background-color: {{ downcased_value | replace: ' ', '' }}"{% endif %}></span>
                                     <span class="color-swatch__label">{{ tag_cor }}</span>
                                   </button>

@@ -661,10 +661,58 @@
           "feed_width": 100,
           "html_area": ""
         }
+      },
+      "130a6a0c-556d-44af-9b4d-7a9cacfbb20e": {
+        "type": "text-with-icons",
+        "blocks": {
+          "f30e965b-4e93-4c36-b12d-34fccfe0985c": {
+            "type": "item",
+            "settings": {
+              "icon": "bi-heart",
+              "title": "Troca gratuita",
+              "content": "<p>Primeira troca e frete de devolução totalmente gratuitos!<\/p>"
+            }
+          },
+          "2e093838-75e1-4e84-884c-b56ebf59e488": {
+            "type": "item",
+            "settings": {
+              "icon": "bi-secure-payment",
+              "title": "Pagamento Seguro",
+              "content": "<p>Pagamento em boleto, pix ou cartão em até 3x sem juros!<\/p>"
+            }
+          },
+          "7992cf80-ca6f-4af3-a9e2-2cb25ed6b2f7": {
+            "type": "item",
+            "settings": {
+              "icon": "bi-delivery",
+              "title": "Entregamos em todo Brasil",
+              "content": "<p>Estoque com envio imediato em até 48h<\/p>"
+            }
+          },
+          "a8ddd9ca-3013-4196-b9cb-b79a58b5d678": {
+            "type": "item",
+            "settings": {
+              "icon": "bi-love",
+              "title": "Suporte ao Cliente",
+              "content": "<p>Atendimento Seg. a Sáb.<strong>9:00h<\/strong> às <strong>18:00h<\/strong><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "f30e965b-4e93-4c36-b12d-34fccfe0985c",
+          "2e093838-75e1-4e84-884c-b56ebf59e488",
+          "7992cf80-ca6f-4af3-a9e2-2cb25ed6b2f7",
+          "a8ddd9ca-3013-4196-b9cb-b79a58b5d678"
+        ],
+        "settings": {
+          "show_section": true,
+          "stack_mobile": false
+        }
       }
     },
     "content_for_index": [
       "slideshow",
+      "130a6a0c-556d-44af-9b4d-7a9cacfbb20e",
       "collection-list",
       "16220411969a2b5a6e",
       "1542984811767",

@@ -8639,13 +8639,22 @@ select::-ms-expand {
 }
 
 .product-label--custom1 {
-  background: var(--product-custom-label-1-background);
-  color: var(--product-custom-label-1-color);
+  background: #fff;
+  color: #000;
 }
 
 .product-label--custom2 {
-  background: var(--product-custom-label-2-background);
-  color: var(--product-custom-label-2-color);
+  background: #363636;
+  color: #fff;
+}
+.product-label--custom3 {
+  background: #442B48;
+  color:#fff;
+}
+
+.product-label--custom4 {
+  background: #EFDCD9;
+  color: #fff;
 }
 
 /**
