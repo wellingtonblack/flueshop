@@ -1,0 +1,47 @@
+{% assign current_product = product %}
+{% assign product_option_name = option_name | downcase %}
+{% assign product_option_value = current_product.options_by_name[product_option_name].values | first %}
+{%- assign colorValueCurrent = current_product.title | split: " " |  last -%}
+
+
+
+<option-color title="{{colorValueCurrent}}" class="group__item" data-option="{{ product_option_value }}" data-url="{{ current_product.handle }}">
+    <input type="radio" id="{{ section_id }}-{{ option.position }}-{{ forloop.index | default: 0 }}"  name="{{ product_option_name }}" value="{{ product_option_value }}" checked />
+
+    <label for="{{ section_id }}-{{ option.position }}-{{ forloop.index | default: 0 }}" data-tippy-content="{{ product_option_value }}">
+        <a href="{{ current_product.url }}">
+            <div class="group__image">
+                <img 
+                    src="{{ current_product.featured_image.src | img_url: '54x' | split: '?' | first }}" 
+                    alt="{{ current_product.title }}" 
+                    width="" 
+                    height="" 
+                    loading="lazy" />
+            </div>
+        </a>
+    </label>
+</option-color>
+
+{% for product_item in product.metafields.custom.products_group.value %}
+    {% assign product_option_name = option_name | downcase %}
+    {% assign product_option_value = product_item.options_by_name[product_option_name].values | first %}
+
+    {%- assign colorValue = product_item.title | split: " " |  last -%}
+    
+    <option-color class="group__item" title="{{colorValue}}"  data-option="{{ product_item.title }}" data-url="{{ product_item.handle }}">
+        <input type="radio" id="{{ section_id }}-{{ option.position }}-{{ forloop.index | default: 0 }}" name="{{ product_option_name }}" value="{{ product_option_value }}" {% if current_product_id == product_item.id %} checked{% endif %}>
+
+        <label for="{{ section_id }}-{{ option.position }}-{{ forloop.index | default: 0 }}" data-tippy-content="{{ product_option_value }}">
+            <a href="{{ product_item.url }}">
+                <div class="group__image">
+                    <img 
+                        src="{{ product_item.featured_image.src | img_url: '54x' | split: '?' | first }}" 
+                        alt="{{ product_item.title }}" 
+                        width="" 
+                        height="" 
+                        loading="lazy" />
+                </div>
+            </a>
+        </label>
+    </option-color>
+{% endfor %}

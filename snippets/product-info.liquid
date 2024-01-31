@@ -318,6 +318,7 @@
             {%- endif -%}
           </div>
         </div>
+        
 
         {%- if section.settings.show_inventory_quantity and product.template_suffix != 'pre-order' -%}
           <div class="product-form__info-item">
@@ -412,6 +413,20 @@
         {%- endif -%}
       </div>
     {%- endform -%}
+    <hr class="card__separator">
+    {% if product.metafields.custom.products_group.value != blank  %}
+      <label for="">Cores:</label>
+      <div class="wrapper-product-group" data-option-name="{{ option_name }}">
+        {% render 'products-group', 
+            product: product, 
+            section_id: section.id 
+            option: option, 
+            option_name: section.settings.option_name 
+        %}
+      </div> 
+    {% endif %}
+    {{ 'product-group.css' | asset_url | stylesheet_tag }}
+    {% comment %} <script src="{{ 'product-group.js' | asset_url }}" async></script> {% endcomment %}
 
     {%- if request.page_type == 'index' and section.settings.show_description and product.description != blank and section.settings.description_below_add_to_cart -%}
       <div class="product-meta__description rte">
