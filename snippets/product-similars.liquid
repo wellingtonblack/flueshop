@@ -1,0 +1,91 @@
+{% assign curr_product = product %}
+{% assign similars = product.metafields.custom.shelf_similars.value %}
+
+<style>
+  .swiper-similars {
+    border: 1px solid #dfe4e6;
+  }
+  .swiper-similars .swiper-wrapper {
+    height: auto;
+  }
+  .swiper-similars .swiper-wrapper .swiper-slide {
+    border-left: 1px solid #dfe4e6;
+  }
+  .swiper-similars .swiper-wrapper .swiper-slide .product-item__title {
+    min-height: 46px;
+  }
+  .swiper-button-prev:after, 
+  .swiper-button-next:after {
+    content: none;
+  }
+  .swiper-similars .swiper-button {
+    background: #a6b4b9;
+    width: 50px;
+    height: 50px;
+    border-radius: 30px;
+  }
+  .swiper-similars .swiper-button svg {
+    width: 25px;
+    height: 25px;
+    fill: #fff;
+  }
+  @media screen and (max-width:768px){
+    .swiper-similars .swiper-wrapper .product-item__price-list {
+        min-height: 53px;
+    }
+    [data-section-id="product-similars"] .container {
+        padding: 0;
+    }
+  }
+</style>
+
+{%- if similars != blank -%}
+  <section class="section" data-section-id="{{ section.id }}">
+      <div class="container">
+          {% if title  != blank %}
+            <header class="section__header">
+              <h2 class="section__title heading h3">{{ title }}</h2>
+            </header>
+          {% endif %}
+          <div class="product-similars">
+            <div class="swiper-similars swiper ">
+                <div class="swiper-wrapper">
+                    {%- for product in similars -%}
+                        {%- render 'product-item', class_custom: 'swiper-slide'  product: product, show_add_to_cart: section.settings.show_quick_buy -%}
+                    {%- endfor -%}
+                </div>
+                {% render 'swiper-buttons' %}
+            </div>   
+          </div>
+      </div>
+  </section>
+{%- endif -%}
+
+<script>
+    function initSliderRelatedProducts(){
+      const params = {
+          loop: false,
+          slidesPerView: {{columns_mobile}}.2,
+          slidesPerGroup: 1,          
+          navigation: {
+              nextEl: '.swiper-button-next',
+              prevEl: '.swiper-button-prev',
+          }, 
+          autoplay: {
+            delay: 4000,
+          },           
+          breakpoints: {
+              768: {
+                  slidesPerView: {{columns_desktop}},
+                  slidesPerGroup: 1
+              }                               
+          }                     
+      }
+  
+      const swiperSpecialistSteps = new Swiper('.swiper-similars', params);
+    }
+    window.addEventListener("DOMContentLoaded", initSliderRelatedProducts())
+</script>
+
+
+
