@@ -36,30 +36,34 @@
     [data-section-id="product-similars"] .container {
         padding: 0;
     }
+    [data-section-id="product-similars"] .container .section__header {
+      padding: 0 15px;
+    }
   }
 </style>
-
-{%- if similars != blank -%}
-  <section class="section" data-section-id="{{ section.id }}">
-      <div class="container">
-          {% if title  != blank %}
-            <header class="section__header">
-              <h2 class="section__title heading h3">{{ title }}</h2>
-            </header>
-          {% endif %}
-          <div class="product-similars">
-            <div class="swiper-similars swiper ">
-                <div class="swiper-wrapper">
-                    {%- for product in similars -%}
-                        {%- render 'product-item', class_custom: 'swiper-slide'  product: product, show_add_to_cart: section.settings.show_quick_buy -%}
-                    {%- endfor -%}
-                </div>
-                {% render 'swiper-buttons' %}
-            </div>   
-          </div>
-      </div>
-  </section>
-{%- endif -%}
+{% if show_shelf %}
+  {%- if similars != blank -%}
+    <section class="section" data-section-id="{{ section.id }}">
+        <div class="container">
+            {% if title  != blank %}
+              <header class="section__header">
+                <h2 class="section__title heading h3">{{ title }}</h2>
+              </header>
+            {% endif %}
+            <div class="product-similars">
+              <div class="swiper-similars swiper ">
+                  <div class="swiper-wrapper">
+                      {%- for product in similars -%}
+                          {%- render 'product-item', class_custom: 'swiper-slide'  product: product, show_add_to_cart: section.settings.show_quick_buy -%}
+                      {%- endfor -%}
+                  </div>
+                  {% render 'swiper-buttons' %}
+              </div>   
+            </div>
+        </div>
+    </section>
+  {%- endif -%}
+{% endif %}
 
 <script>
     function initSliderRelatedProducts(){

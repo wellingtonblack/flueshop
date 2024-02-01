@@ -2,13 +2,19 @@
   title: section.settings.title_text
   columns_desktop: section.settings.columns_desktop
   columns_mobile: section.settings.columns_mobile
-
+  show_shelf: section.settings.show_shelf
 %}
 
 {% schema %}
   {
     "name": "Product Similars",
     "settings": [
+      {
+      "type": "checkbox",
+      "id": "show_shelf",
+      "label": "Show",
+      "default": true
+      },
       {
         "type": "text",
         "id": "title_text",
