@@ -191,6 +191,13 @@
               "collection": "macacao",
               "image": "shopify:\/\/shop_images\/MACACOES2.png"
             }
+          },
+          "collection_rb3cgz": {
+            "type": "collection",
+            "settings": {
+              "collection": "acessorios",
+              "image": "shopify:\/\/shop_images\/cintofivelasprata22.jpg"
+            }
           }
         },
         "block_order": [
@@ -199,7 +206,8 @@
           "collection-0",
           "f6a889f4-f24c-4b91-96ad-43fa5a505b8d",
           "b6e4b8c9-9974-4958-a526-3b493ebb98aa",
-          "f3b0f3b7-b6e7-450f-a884-d0b76d02086e"
+          "f3b0f3b7-b6e7-450f-a884-d0b76d02086e",
+          "collection_rb3cgz"
         ],
         "settings": {
           "title": "Categorias Flue",
@@ -289,7 +297,7 @@
           "show_reviews_badge": true,
           "trust_title": "Pagamento em até 3x sem juros no cartão ou boleto.",
           "show_payment_icons": false,
-          "show_shipping_estimator": false,
+          "show_shipping_estimator": true,
           "shipping_estimator_default_country": "",
           "show_refunds_policy": false
         }
@@ -430,23 +438,6 @@
       "slideshow": {
         "type": "slideshow",
         "blocks": {
-          "image_bQAzCA": {
-            "type": "image",
-            "settings": {
-              "image": "shopify:\/\/shop_images\/BANNER_SITE_OFICIAL_web_2.png",
-              "mobile_image": "shopify:\/\/shop_images\/BANNER_SITE_OFICIAL_celular_3.png",
-              "show_overlay": false,
-              "overlay_opacity": 30,
-              "text_color": "#ffffff",
-              "title": "",
-              "content": "",
-              "content_position": "middle_center",
-              "button_background": "#ffffff",
-              "button_text_color": "#000000",
-              "button_text": "",
-              "link": "shopify:\/\/collections\/festa"
-            }
-          },
           "e31bc0fc-8b36-41cc-a2e6-340a355e96fb": {
             "type": "image",
             "settings": {
@@ -464,11 +455,28 @@
               "link": "shopify:\/\/collections\/saias-e-shorts-saias"
             }
           },
+          "image_4gMHAD": {
+            "type": "image",
+            "settings": {
+              "image": "shopify:\/\/shop_images\/BANNER_SITE_OFICIAL_web_03b11113-0bb1-4d79-9fb6-4cf5281ce574.png",
+              "mobile_image": "shopify:\/\/shop_images\/NOVOS_BANNER_MOBILE_SITE_OFICIAL_celular_1.png",
+              "show_overlay": false,
+              "overlay_opacity": 30,
+              "text_color": "#ffffff",
+              "title": "",
+              "content": "",
+              "content_position": "middle_center",
+              "button_background": "#ffffff",
+              "button_text_color": "#000000",
+              "button_text": "",
+              "link": "shopify:\/\/collections\/glamour-black"
+            }
+          },
           "a2648425-7873-4147-b24b-c8cfce24cba7": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/1_3cecc4c7-053d-4318-8ca2-0807896e5cc5.png",
-              "mobile_image": "shopify:\/\/shop_images\/1_ee68a844-7fb6-41f1-886f-dfac038c7ed0.png",
+              "image": "shopify:\/\/shop_images\/BANNER_SITE_OFICIAL_web_1_fef17155-c0f8-4b7c-9d48-c8fa40545486.png",
+              "mobile_image": "shopify:\/\/shop_images\/NOVOS_BANNER_SITE_OFICIAL_celular_1.png",
               "show_overlay": true,
               "overlay_opacity": 14,
               "text_color": "#ffffff",
@@ -478,24 +486,24 @@
               "button_background": "#ffffff",
               "button_text_color": "#363636",
               "button_text": "",
-              "link": "shopify:\/\/collections\/destaques"
+              "link": "shopify:\/\/collections\/outono-inverno"
             }
           },
-          "slide-0": {
+          "image_bQAzCA": {
             "type": "image",
             "settings": {
-              "image": "shopify:\/\/shop_images\/2_c83f1721-5792-483b-b1e1-eada7eb3ea70.png",
-              "mobile_image": "shopify:\/\/shop_images\/2_806382df-c62f-415e-8955-aa3f2047c43b.png",
-              "show_overlay": true,
-              "overlay_opacity": 14,
-              "text_color": "#363636",
+              "image": "shopify:\/\/shop_images\/BANNER_SITE_OFICIAL_web.png",
+              "mobile_image": "shopify:\/\/shop_images\/NOVOS_BANNER_SITE_OFICIAL_celular.png",
+              "show_overlay": false,
+              "overlay_opacity": 30,
+              "text_color": "#ffffff",
               "title": "",
               "content": "",
               "content_position": "middle_center",
-              "button_background": "#363636",
+              "button_background": "#ffffff",
               "button_text_color": "#000000",
               "button_text": "",
-              "link": "shopify:\/\/collections\/colecao-festival"
+              "link": "shopify:\/\/collections\/risca-de-giz"
             }
           },
           "ecd4677f-346a-4630-8b74-9fa12c0f2d95": {
@@ -534,10 +542,10 @@
           }
         },
         "block_order": [
-          "image_bQAzCA",
           "e31bc0fc-8b36-41cc-a2e6-340a355e96fb",
+          "image_4gMHAD",
           "a2648425-7873-4147-b24b-c8cfce24cba7",
-          "slide-0",
+          "image_bQAzCA",
           "ecd4677f-346a-4630-8b74-9fa12c0f2d95",
           "d223f1a8-fd6a-426f-ac65-22962af979cb"
         ],
@@ -700,6 +708,82 @@
           "title_text": "Combine seu produto",
           "columns_desktop": 6,
           "columns_mobile": "2"
+        }
+      },
+      "list-collections-template": {
+        "type": "list-collections-template",
+        "blocks": {
+          "collection_m9LFV9": {
+            "type": "collection",
+            "settings": {
+              "collection": "destaques"
+            }
+          },
+          "collection_WFMXKg": {
+            "type": "collection",
+            "settings": {
+              "collection": "colecao-festival"
+            }
+          },
+          "collection_tVFyhV": {
+            "type": "collection",
+            "settings": {
+              "collection": "festa"
+            }
+          },
+          "collection_W4Qe7V": {
+            "type": "collection",
+            "settings": {
+              "collection": "basicos"
+            }
+          },
+          "collection_6k8UXy": {
+            "type": "collection",
+            "settings": {
+              "collection": "risca-de-giz"
+            }
+          },
+          "collection_fiEtgQ": {
+            "type": "collection",
+            "settings": {
+              "collection": "frontpage"
+            }
+          },
+          "collection_ica76d": {
+            "type": "collection",
+            "settings": {
+              "collection": "outono-inverno"
+            }
+          },
+          "collection_NfMbzT": {
+            "type": "collection",
+            "settings": {
+              "collection": "glamour-black"
+            }
+          },
+          "collection_rgLLEh": {
+            "type": "collection",
+            "settings": {
+              "collection": "acessorios"
+            }
+          }
+        },
+        "block_order": [
+          "collection_m9LFV9",
+          "collection_WFMXKg",
+          "collection_tVFyhV",
+          "collection_W4Qe7V",
+          "collection_6k8UXy",
+          "collection_fiEtgQ",
+          "collection_ica76d",
+          "collection_NfMbzT",
+          "collection_rgLLEh"
+        ],
+        "settings": {
+          "collections_to_show": "selected",
+          "show_collection_title": true,
+          "show_collection_overlay": true,
+          "collection_overlay_opacity": 20
         }
       }
     },
