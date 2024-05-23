@@ -169,6 +169,9 @@
           {%- else -%}
             <span class="price">{{ product.price | money_without_trailing_zeros }}</span>
           {%- endif -%}
+          {% if settings.installment_enable  %}
+            {% render 'installment', product_price: product.price %}            
+          {% endif %}
 
         </div>
 

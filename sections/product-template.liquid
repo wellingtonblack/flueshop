@@ -305,7 +305,15 @@
           {%- endcomment -%}
 
           {%- if section.settings.show_shipping_estimator and product.available -%}
-            <div class="product-block-list__item product-block-list__item--shipping">
+
+            <div class="product-block-list__item product-block-list__item--content">
+              <div class="card">
+                <div class="card__section">
+                  {% include "shipping-calculator" %}
+                </div>
+              </div>
+            </div>
+            {% comment %} <div class="product-block-list__item product-block-list__item--shipping">
               <div class="card">
                 <div class="card__header">
                   <h2 class="card__title heading h3">{{ 'product.general.estimate_shipping' | t }}</h2>
@@ -354,11 +362,12 @@
                   </div>
                 {%- endif -%}
               </div>
-            </div>
+            </div> {% endcomment %}
           {%- endif -%}
         </div>
       </div>
     </div>
+    
 
     {%- if section.settings.show_refunds_policy and shop.refund_policy != blank -%}
       <div id="modal-refunds-policy" class="modal" aria-hidden="true">
@@ -663,13 +672,6 @@
       "label": "Show shipping estimator",
       "info": "Only show if product is available.",
       "default": true
-    },
-    {
-      "type": "text",
-      "id": "shipping_estimator_default_country",
-      "label": "Default country",
-      "info": "If the customer is logged in, the country of their shipping address will be used.",
-      "default": "United States"
     },
     {
       "type": "checkbox",
